@@ -2,3 +2,4 @@
 dist/
 proxy
 proxy-reverse-proxy-cli
+.idea/

@@ -1,6 +1,7 @@
 name: Release
 on:
-  push: [ master ]
+  push:
+    branches: [master]
 env:
   VERSION: ${{ github.event.release.tag_name }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

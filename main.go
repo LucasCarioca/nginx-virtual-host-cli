@@ -24,7 +24,7 @@ func main() {
 			&cli.StringFlag{
 				Name:        "host",
 				Aliases:     []string{"H"},
-				Value:       "0.0.0.0",
+				Value:       "http://0.0.0.0",
 				Usage:       "Host for the new server",
 				Destination: &hostName,
 			},

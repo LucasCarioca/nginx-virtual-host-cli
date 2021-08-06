@@ -1,4 +1,4 @@
-# NGINX Virtual Server Management CLI
+# NGINX Virtual Host Management CLI
 
 ## Install
 

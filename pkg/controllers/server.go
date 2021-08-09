@@ -26,9 +26,9 @@ func getEnv(key, fallback string) string {
 }
 
 func (c *ServerController) Create(serverName string, hostName string) {
-	sitesAvailableRoot := getEnv("PROXY_SITES_AVAILABLE", "/etc/nginx/sites-available")
+	sitesAvailableRoot := getEnv("NGINX_ROOT", "/etc/nginx")
 	fmt.Printf("creating %s -> %s...\n", serverName, hostName)
-	f, err := os.Create(fmt.Sprintf("%s/%s", sitesAvailableRoot, serverName))
+	f, err := os.Create(fmt.Sprintf("%s/sites-available/%s", sitesAvailableRoot, serverName))
 	checkErr(err)
 	defer f.Close()
 	f.Write([]byte(fmt.Sprintf(SERVER, serverName, hostName)))

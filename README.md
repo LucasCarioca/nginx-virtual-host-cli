@@ -13,14 +13,18 @@ curl -L https://raw.githubusercontent.com/LucasCarioca/proxy-reverse-proxy-cli/m
 curl -L https://raw.githubusercontent.com/LucasCarioca/proxy-reverse-proxy-cli/main/scripts/install-linux.sh | sh -s 0.3.0
 ```
 
-## Uninstall 
-```shell
-curl -L https://raw.githubusercontent.com/LucasCarioca/proxy-reverse-proxy-cli/main/scripts/uninstall.sh | sh
-```
+### Manual installation
 ```shell
 curl -L https://github.com/LucasCarioca/proxy-reverse-proxy-cli/releases/download/<RELEASE>/<BINARY_NAME>.tar.gz -o proxy.tar.gz
 tar -xzf proxy.tar.gz
 sudo mv proxy /usr/local/bin/proxy
 ```
+
+## Uninstall 
+```shell
+curl -L https://raw.githubusercontent.com/LucasCarioca/proxy-reverse-proxy-cli/main/scripts/uninstall.sh | sh
+```
+
+
 
 

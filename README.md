@@ -3,7 +3,7 @@
 ![GitHub Release Date](https://img.shields.io/github/release-date/LucasCarioca/nginx-virtual-host-cli)
 ![GitHub all releases](https://img.shields.io/github/downloads/LucasCarioca/nginx-virtual-host-cli/total)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/LucasCarioca/nginx-virtual-host-cli/Release?label=release)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/LucasCarioca/nginx-virtual-host-cli/CI?label=release)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/LucasCarioca/nginx-virtual-host-cli/CI?label=CI)
 ## Install
 Using prepared install-scripts. These can also be used to upgrade to newer versions. Please see the releases section of this repo for information on each release.
 ```shell

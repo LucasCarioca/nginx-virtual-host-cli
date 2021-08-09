@@ -36,9 +36,8 @@ func (c *ServerController) Create(serverName string, hostName string) {
 	f.Write([]byte(fmt.Sprintf(SERVER, serverName, hostName)))
 	f.Sync()
 	f.Close()
-	out, err := exec.Command("ln", "-s", sitesAvailablePath, sitesEnabledPath).Output()
+	_, err = exec.Command("ln", "-s", sitesAvailablePath, sitesEnabledPath).Output()
 	checkErr(err)
-	fmt.Println(out)
 }
 
 const SERVER = "server {\n  listen 80;\n  listen [::]:80;\n  " +

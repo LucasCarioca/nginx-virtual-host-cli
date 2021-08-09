@@ -36,7 +36,7 @@ func (c *ServerController) Create(serverName string, hostName string) {
 	f.Write([]byte(fmt.Sprintf(SERVER, serverName, hostName)))
 	f.Sync()
 	f.Close()
-	_, err = exec.Command("ln", "-s", sitesAvailablePath, sitesEnabledPath).Output()
+	_, err = exec.Command("ln", "-Fs", sitesAvailablePath, sitesEnabledPath).Output()
 	checkErr(err)
 }
 

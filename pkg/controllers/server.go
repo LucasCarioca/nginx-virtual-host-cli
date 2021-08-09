@@ -3,6 +3,7 @@ package controllers
 import (
 	"fmt"
 	"os"
+	"os/exec"
 )
 
 type ServerController struct{}
@@ -26,13 +27,18 @@ func getEnv(key, fallback string) string {
 }
 
 func (c *ServerController) Create(serverName string, hostName string) {
-	sitesAvailableRoot := getEnv("NGINX_ROOT", "/etc/nginx")
+	nginxRoot := getEnv("NGINX_ROOT", "/etc/nginx")
 	fmt.Printf("creating %s -> %s...\n", serverName, hostName)
-	f, err := os.Create(fmt.Sprintf("%s/sites-available/%s", sitesAvailableRoot, serverName))
+	sitesAvailablePath := fmt.Sprintf("%s/sites-available/%s", nginxRoot, serverName)
+	sitesEnabledPath := fmt.Sprintf("%s/sites-enabled/%s", nginxRoot, serverName)
+	f, err := os.Create(sitesAvailablePath)
 	checkErr(err)
-	defer f.Close()
 	f.Write([]byte(fmt.Sprintf(SERVER, serverName, hostName)))
 	f.Sync()
+	f.Close()
+	out, err := exec.Command("ln", "-s", sitesAvailablePath, sitesEnabledPath).Output()
+	checkErr(err)
+	fmt.Println(out)
 }
 
 const SERVER = "server {\n  listen 80;\n  listen [::]:80;\n  " +

@@ -14,10 +14,14 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: 1.16
-      - name: Golint
-        uses: Jerome1337/golint-action@v1.0.2
-        with:
-          golint-path: './...'
+      - name: Install dependencies
+        run: |
+          go version
+          go get -u golang.org/x/lint/golint
+      - name: Go vet 
+        run: go vet ./...
+      - name: Go lint
+        run: golint ./...
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v2
         with:

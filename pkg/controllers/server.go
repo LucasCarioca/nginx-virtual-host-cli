@@ -28,7 +28,9 @@ func getEnv(key, fallback string) string {
 	return value
 }
 
-
+// Create is used to create a new virtual host
+// serverName will be used as the vitual host's servername
+// hostName will be used for the proxy pass of the virtual host
 func (c *ServerController) Create(serverName string, hostName string) {
 	nginxRoot := getEnv("NGINX_ROOT", "/etc/nginx")
 	fmt.Printf("creating %s -> %s...\n", serverName, hostName)

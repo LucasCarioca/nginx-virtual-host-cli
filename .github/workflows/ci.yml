@@ -5,7 +5,7 @@ env:
   VERSION: ${{ github.event.release.tag_name }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
-  build-release:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -22,6 +22,15 @@ jobs:
         run: go vet ./...
       - name: Go lint
         run: golint ./...
+  release-dryrun:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.16
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v2
         with:
